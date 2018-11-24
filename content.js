@@ -1,9 +1,23 @@
 
+function addToChromeStorage(key, value){
+	jsonStorageObject = {};
+	jsonStorageObject[key]=value;
+	chrome.storage.sync.set(jsonStorageObject, function(){
+		console.log('saved : '+key);
+	});
+}
+
 function enque(event,videoLink){
 	event.preventDefault();
 	if(!videoLinks.includes(videoLink)){
 		videoLinks.push(videoLink);
 	}
+	key = 'video-links';
+	addToChromeStorage(key,videoLinks);
+	chrome.storage.sync.get([key], function(result) {
+        	console.log('fetched value'+JSON.stringify(result));
+	});
+	return result;
 }
 
 function deque(){
