@@ -1,4 +1,28 @@
 
+// var imported = document.createElement('script');
+// imported.src = 'content.js';
+// document.head.appendChild(imported);
+
+
+function getToggleSwitch(){
+	toggleSwitch = document.getElementById('toggle_switch');
+	console.log(toggleSwitch,'instance');
+	return toggleSwitch;
+}
+
+function toggleExtensionState(){
+	currentState = element.checked;
+	if(currentState == false){
+		currentState = true;
+		//call turn on state
+	}
+	else{
+		currentState = false;
+		//call turn of function
+	}
+	element.checked = currentState;
+}
+
 function addToChromeStorage(key, value){
 	jsonStorageObject = {};
 	jsonStorageObject[key]=value;
@@ -51,6 +75,16 @@ function addElement(){
 }
 
 videoLinks = [];
+
+window.onload = function(){
+	toggleSwitch = getToggleSwitch();
+	console.log(toggleSwitch,'instance');
+	toggleSwitch.checked = true;
+	addElement();
+	console.log(videoLinks);
+
+}
+
 window.onscroll = function(){
 	addElement();
 	console.log(videoLinks);

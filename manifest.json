@@ -5,7 +5,7 @@
     "author":"Anshul Tiwari",
     "manifest_version": 2,
     "browser_action": {
-      "default_popup": "queue.html",
+      "default_popup": "toggle_switch.html",
       "default_icon": "queue.png"
     },
     "commands": {
@@ -27,5 +27,9 @@
         "js": ["content.js"],
         "run_at": "document_end"         // pay attention to this line
         }
-    ]
+    ],
+    "background": {
+    "scripts": ["background.js", "backgroundContextMenus.js"],
+    "persistent": false
+  }
 }
